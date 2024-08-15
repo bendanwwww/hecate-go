@@ -11,12 +11,8 @@ import (
 
 type RuntimeContext[T any] struct {
 	context.Context
-	// graph business name
-	BusinessName string
-	// graph name
-	GraphName string
-	// graph version
-	Version string
+	// graph scenes name
+	ScenesName string
 	// trace id
 	RequestId string
 	// business context
@@ -39,14 +35,12 @@ type RuntimeContext[T any] struct {
 }
 
 func NewRuntimeContext[T any](ctx context.Context,
-	businessName string, graphName string, version string,
+	scenesName string,
 	logPrintSwitch bool, logMustWriteTime int64, logSamplingSwitch bool, logSamplingRate float64,
 	servingContext *T, nodeSize int, graphTimeout int64) *RuntimeContext[T] {
 	requestContext := &RuntimeContext[T]{
 		Context:            ctx,
-		BusinessName:       businessName,
-		GraphName:          graphName,
-		Version:            version,
+		ScenesName:         scenesName,
 		ServingContext:     servingContext,
 		ExecutionStartTime: time.Now().UnixMilli(),
 		GraphTimeout:       graphTimeout,

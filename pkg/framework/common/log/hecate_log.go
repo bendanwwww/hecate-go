@@ -25,12 +25,8 @@ const (
 	ZagLogType LogPlaceholder = "{{logType}}"
 	// RequestId trace id
 	RequestId LogPlaceholder = "{{requestId}}"
-	// BusinessName business name
-	BusinessName LogPlaceholder = "{{businessName}}"
-	// GraphName graph name
-	GraphName LogPlaceholder = "{{graphName}}"
-	// GraphVersion graph version
-	GraphVersion LogPlaceholder = "{{graphVersion}}"
+	// ScenesName scenes name
+	ScenesName LogPlaceholder = "{{scenesName}}"
 	// NodeId node id
 	NodeId LogPlaceholder = "{{nodeId}}"
 	// FromNodeId last node id
@@ -190,9 +186,7 @@ func businessLogFormat(ctx context.Context, hecateLog *HecateLog, msgFormat stri
 		return hecateLog.Format.ExecuteString(map[string]interface{}{
 			"logType":            string(hecateLog.LogType),
 			"requestId":          strings.ReplaceAll(c.RequestId, " ", "_"),
-			"businessName":       strings.ReplaceAll(c.BusinessName, " ", "_"),
-			"graphName":          strings.ReplaceAll(c.GraphName, " ", "_"),
-			"graphVersion":       strings.ReplaceAll(c.Version, " ", "_"),
+			"scenesName":         strings.ReplaceAll(c.ScenesName, " ", "_"),
 			"nodeId":             tools.Int2String(c.NodeId),
 			"fromNodeId":         tools.Int2String(c.FromNodeId),
 			"nodeName":           strings.ReplaceAll(c.NodeName, " ", "_"),

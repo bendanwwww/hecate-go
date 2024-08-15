@@ -7,12 +7,8 @@ import (
 
 type LogContext struct {
 	context.Context
-	// graph business name
-	BusinessName string
-	// graph name
-	GraphName string
-	// graph version
-	Version string
+	// graph scenes name
+	ScenesName string
 	// trace id
 	RequestId string
 	// node id
@@ -42,25 +38,23 @@ type LogContext struct {
 }
 
 func NewLogContextWithFirstNodeInfo(ctx context.Context, requestId string,
-	businessName string, graphName string, version string, startExecutionTime int64,
+	scenesName string, startExecutionTime int64,
 	nodeId int, nodeName string, needPrintLog bool, needWriteUpload bool, mustWriteTime int64,
 	logBuffer *[][]*entities.LogInfo) *LogContext {
 	return NewLogContext(ctx,
-		requestId, businessName, graphName, version, startExecutionTime,
+		requestId, scenesName, startExecutionTime,
 		nodeId, nodeName, -1, "start", needPrintLog, needWriteUpload, mustWriteTime, logBuffer)
 }
 
 func NewLogContext(ctx context.Context, requestId string,
-	businessName string, graphName string, version string, startExecutionTime int64,
+	scenesName string, startExecutionTime int64,
 	nodeId int, nodeName string, fromNodeId int, fromNodeName string,
 	needPrintLog bool, needWriteUpload bool, mustWriteTime int64,
 	logBuffer *[][]*entities.LogInfo) *LogContext {
 	return &LogContext{
 		Context:            ctx,
 		RequestId:          requestId,
-		BusinessName:       businessName,
-		GraphName:          graphName,
-		Version:            version,
+		ScenesName:         scenesName,
 		StartExecutionTime: startExecutionTime,
 		NodeId:             nodeId,
 		FromNodeId:         fromNodeId,
