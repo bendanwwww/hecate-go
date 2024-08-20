@@ -31,7 +31,7 @@ type BuilderApi[T any] interface {
 	// HasCustomGroup check the node is below at least one custom node group
 	HasCustomGroup(index int) bool
 	// GetNextNodeByIndex get the node next nodes
-	// return a array. res[i][0] is the next node index, res[i][1] is the node and the next node's edge index.
+	// return an array. res[i][0] is the next node index, res[i][1] is the node and the next node's edge index.
 	GetNextNodeByIndex(index int) [][]int
 	// GetNodeStrongDependBitByIndex get the node binary
 	GetNodeStrongDependBitByIndex(index int) *tools.BigBinary
