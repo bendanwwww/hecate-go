@@ -1,7 +1,7 @@
 package constant
 
-// MapType builder graph type
-type MapType string
+// BuilderType builder graph type
+type BuilderType string
 
 // SchedulerType scheduler type
 type SchedulerType string
@@ -11,7 +11,7 @@ type ActuatorType string
 
 const (
 	/** default builder graph driver */
-	DefaultMap MapType = "DefaultMap"
+	DefaultBuilder BuilderType = "DefaultMap"
 )
 
 const (

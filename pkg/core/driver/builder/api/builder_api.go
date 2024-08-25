@@ -5,7 +5,7 @@ import (
 	"github.com/bendanwwww/hecate-go/pkg/framework/tools"
 )
 
-type BuilderApi[T any] interface {
+type Builder[T any] interface {
 	// GetMapScenes get the map's scenes
 	GetMapScenes() string
 	// GetNodeNumber get node number in the map

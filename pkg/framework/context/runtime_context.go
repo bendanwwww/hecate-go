@@ -37,7 +37,7 @@ type RuntimeContext[T any] struct {
 func NewRuntimeContext[T any](ctx context.Context,
 	scenesName string,
 	logPrintSwitch bool, logMustWriteTime int64, logSamplingSwitch bool, logSamplingRate float64,
-	servingContext *T, nodeSize int, graphTimeout int64) *RuntimeContext[T] {
+	servingContext *T, nodeNumber int, graphTimeout int64) *RuntimeContext[T] {
 	requestContext := &RuntimeContext[T]{
 		Context:            ctx,
 		ScenesName:         scenesName,
@@ -47,7 +47,7 @@ func NewRuntimeContext[T any](ctx context.Context,
 		ReqChan:            make(chan string, 10),
 		NeedPrintLog:       logPrintSwitch,
 		MustWriteTime:      logMustWriteTime,
-		LogBuffer:          make([][]*LogEntities.LogInfo, nodeSize),
+		LogBuffer:          make([][]*LogEntities.LogInfo, nodeNumber),
 	}
 	// if trace id in context, then use it, otherwise, call tools.GetNextId() make one.
 	if ctx.Value(constant.TraceIdKey) == nil {

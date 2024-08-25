@@ -4,7 +4,7 @@ import (
 	zagEntities "github.com/bendanwwww/hecate-go/pkg/core/entities"
 )
 
-type BuilderNodeApi[T any] interface {
+type BuilderNode[T any] interface {
 	// Name set node's name
 	Name(name string)
 	// Operator set node's operator
